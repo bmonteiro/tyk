@@ -5,6 +5,37 @@
     "proxy": {
         "listen_path": "/pre"
     },
+    "version_data": {
+        "not_versioned": true,
+        "default_version": "",
+        "versions": {
+            "Default": {
+                "name": "Default",
+                "expires": "",
+                "paths": {
+                    "ignored": [],
+                    "white_list": [],
+                    "black_list": []
+                },
+                "use_extended_paths": true,
+                "global_headers": {},
+                "global_headers_remove": [],
+                "global_response_headers": null,
+                "global_response_headers_remove": null,
+                "ignore_endpoint_case": false,
+                "global_size_limit": 0,
+                "override_target": "",
+                "extended_paths": {
+                    "track_endpoints": [
+                        {
+                            "path": "",
+                            "method": "GET"
+                        }
+                    ]
+                }
+            }
+        }
+    },
     "custom_middleware": {
         "pre": [
             {
