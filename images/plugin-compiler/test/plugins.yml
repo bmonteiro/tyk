@@ -1,0 +1,15 @@
+version: '3'
+services:
+    tyk-gateway:
+        image: tykio/tyk-gateway:v2.9.4.2
+        ports:
+            - "8080:8080"
+        volumes:
+            - $PWD/apps:/opt/tyk-gateway/apps
+            - $PWD/tyk.conf:/opt/tyk-gateway/tyk.conf
+            - $PWD/plugins:/opt/tyk-gateway/middleware
+        depends_on:
+            - redis
+              
+    redis:
+        image: redis

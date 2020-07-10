@@ -1,0 +1,17 @@
+{
+    "name": "Pre test",
+    "use_keyless": true,
+    "active": true,
+    "proxy": {
+        "listen_path": "/pre"
+    },
+    "custom_middleware": {
+        "pre": [
+            {
+                "name": "AddFooBarHeader",
+                "path": "/opt/tyk-gateway/middleware/p1.so"
+            }
+        ],
+        "driver": "goplugin"
+    }
+}
