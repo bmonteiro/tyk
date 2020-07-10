@@ -1,6 +1,8 @@
 version: '3'
 services:
     tyk-gateway:
+        environment:
+          - TYK_LOGLEVEL=debug
         image: tykio/tyk-gateway:${GW_VERSION}
         ports:
             - "8080:8080"

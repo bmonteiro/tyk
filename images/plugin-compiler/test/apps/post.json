@@ -1,9 +1,11 @@
 {
-    "name": "Pre test",
+    "name": "Post test",
     "use_keyless": true,
     "active": true,
     "proxy": {
-        "listen_path": "/pre"
+        "listen_path": "/post",
+        "target_url": "http://httpbin.org/post",
+        "strip_listen_path": true
     },
     "version_data": {
         "not_versioned": true,
@@ -37,10 +39,10 @@
         }
     },
     "custom_middleware": {
-        "pre": [
+        "post": [
             {
                 "name": "AddFooBarHeader",
-                "path": "/opt/tyk-gateway/middleware/p1.so"
+                "path": "/opt/tyk-gateway/middleware/plugin.so"
             }
         ],
         "driver": "goplugin"

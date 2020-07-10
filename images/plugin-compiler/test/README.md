@@ -23,12 +23,41 @@ cp: cannot stat '/go/src/plugin-build/vendor': No such file or directory
 ```
 
 ## Define an API
-Place this in the `apps` sub-directory. This is mounted to `/opt/tyk-gateway/apps`.
+Place this in the `apps` sub-directory. This is mounted to
+`/opt/tyk-gateway/apps`. A sample definition is provided.
 
 ## Run gateway with plugins
-A minimal `tyk.conf` is provided. Set the gateway version to use and
+Move the plugins into a directory called `plugins`. This will be
+mounted to `/opt/tyk-gateway/middleware` in the gateway container. A
+minimal `tyk.conf` is provided. Set the gateway version to use and
 bring the gateway and redis up with
 
 ``` shellsession
 % GW_VERSION=v2.9.4.2 docker-compose -f plugins.yml up
 ```
+
+## See if the plugin works
+
+``` shellsession
+% curl -X POST http://localhost:8080/post
+{
+  "args": {}, 
+  "data": "", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip", 
+    "Content-Length": "0", 
+    "Foo": "Bar", 
+    "Host": "httpbin.org", 
+    "User-Agent": "curl/7.68.0", 
+    "X-Amzn-Trace-Id": "Root=1-5f08545c-2f91e5c4388bff04f25f1467"
+  }, 
+  "json": null, 
+  "origin": "172.26.0.1, 106.51.77.191", 
+  "url": "http://httpbin.org/post"
+}
+```
+
+Note the header `Foo`.
