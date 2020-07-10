@@ -26,8 +26,9 @@ cp: cannot stat '/go/src/plugin-build/vendor': No such file or directory
 Place this in the `apps` sub-directory. This is mounted to `/opt/tyk-gateway/apps`.
 
 ## Run gateway with plugins
-A minimal `tyk.conf` is provided. Bring the gateway and redis up with
+A minimal `tyk.conf` is provided. Set the gateway version to use and
+bring the gateway and redis up with
 
 ``` shellsession
-% docker-compose -f plugins.yml up
+% GW_VERSION=v2.9.4.2 docker-compose -f plugins.yml up
 ```
